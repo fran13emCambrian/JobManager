@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using JobManager.Models;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
+using Xamarin.Forms;
 
 namespace JobManager.ViewModels
 {
@@ -13,7 +14,7 @@ namespace JobManager.ViewModels
         public ObservableRangeCollection<Job> Jobs { get; set; }
         public AsyncCommand RefreshCommand { get; }
 
-        public AsyncCommand<Job> SelectCommand { get; }
+        public AsyncCommand<Job> SelectedCommand { get; }
 
         private Job selectedJob;
 
@@ -27,14 +28,17 @@ namespace JobManager.ViewModels
         {
             Title = "Jobs";
 
-            Jobs = new ObservableRangeCollection<Job>(); 
+            Jobs = new ObservableRangeCollection<Job>();
+            LoadJobs(); 
             RefreshCommand = new AsyncCommand(Refresh);
-            SelectCommand = new AsyncCommand<Job>(Selected);
+            SelectedCommand = new AsyncCommand<Job>(Selected);
         }
 
         private async Task Selected(Job job)
         {
-            //not implemented 
+            //  var route = "JobDetailPage?JobId=2";
+            var route = $"{nameof(Views.JobDetailPage)}?JobId={job.Id}";
+            await Shell.Current.GoToAsync(route); 
         }
 
         public async Task Refresh()

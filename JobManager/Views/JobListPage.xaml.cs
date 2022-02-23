@@ -16,5 +16,6 @@ namespace JobManager.Views
         {
             InitializeComponent();
         }
+     
     }
 }

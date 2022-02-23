@@ -7,6 +7,8 @@
             <Label Text="Welcome to Job Manager!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button Text = "Test Api" Clicked="OneAccessAPIClicked"> </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

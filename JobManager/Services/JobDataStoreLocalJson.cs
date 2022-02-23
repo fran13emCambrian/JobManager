@@ -33,18 +33,7 @@ public async Task AddJob(Job job)
             jobs.Remove(remove); 
         }
 
-        public async Task<Job> GetJob(int jobId)
-        {
-            var jobs = ReadFile();
-            var job = jobs.Find(p => p.Id == jobId);
-            return job; 
-        }
-
-        public async Task<IEnumerable<Job>> GetJobs()
-        {
-            var jobs = ReadFile(); 
-            return jobs;  
-            } 
+       
 
         public async Task UpdateJob(Job job)
         {
@@ -52,25 +41,22 @@ public async Task AddJob(Job job)
             jobs[jobs.FindIndex(p => p.Id == job.Id)] = job;
             WriteFile(jobs); 
         }
-        private void WriteFile(List<Job> jobs)
-        {
-            var jsonString = JsonConvert.SerializeObject(jobs);
-            File.WriteAllText(FilePath, jsonString); 
-        }
-
+    
         private List<Job> ReadFile()
         {
-if (File.Exists(FilePath))
+            File.Exists(FilePath);
+            try
             {
                 var jsonString = File.ReadAllText(FilePath);
                 var jobs = JsonConvert.DeserializeObject<List<Job>>(jsonString);
                 return jobs; 
             }
-            else
+
+            catch (Exception e)
             {
-                var jobs = GetDefaultJobs();
-                WriteFile(jobs);
-                return jobs; 
+                var defaultJobs = GetDefaultJobs();
+                WriteFile(defaultJobs);
+                return defaultJobs; 
             }
         }
 
@@ -86,5 +72,24 @@ if (File.Exists(FilePath))
         };
             return jobs; 
         }
+        private void WriteFile(List<Job> jobs)
+        {
+            var jsonString = JsonConvert.SerializeObject(jobs);
+            File.WriteAllText(FilePath, jsonString);
+        }
+
+        public async Task<Job> GetJob(int jobId)
+        {
+            var jobs = ReadFile();
+            var job = jobs.Find(p => p.Id == jobId);
+            return job;
+        }
+
+        public async Task<IEnumerable<Job>> GetJobs()
+        {
+            var jobs = ReadFile();
+            return jobs;
+        }
+
     }
 }
