@@ -12,7 +12,7 @@ namespace JobManager.Services
     class JobDataStoreAPI : IJobDataStore<Job>
     {
         private static string StudentNumber => "A00223609";
-        private static string API => $"https://jobmanagerdevapi.azurewebsites.net/{StudentNumber}";
+        private static string API => $"https://jobmanagerdevapi.azurewebsites.net/A00223609";
         public async Task AddJob(Job job)
         {
             var service = DependencyService.Get<IWebClientService>();

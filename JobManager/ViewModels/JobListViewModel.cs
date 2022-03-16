@@ -15,6 +15,7 @@ namespace JobManager.ViewModels
         public AsyncCommand RefreshCommand { get; }
 
         public AsyncCommand<Job> SelectedCommand { get; }
+        public AsyncCommand AddCommand { get; } 
 
         private Job selectedJob;
 
@@ -32,6 +33,13 @@ namespace JobManager.ViewModels
             LoadJobs(); 
             RefreshCommand = new AsyncCommand(Refresh);
             SelectedCommand = new AsyncCommand<Job>(Selected);
+            AddCommand = new AsyncCommand(Add); 
+        }
+
+        async Task Add()
+        {
+            var route = $"{nameof(Views.JobDetailPage)}";
+            await Shell.Current.GoToAsync(route);
         }
 
         private async Task Selected(Job job)

@@ -13,7 +13,16 @@
     <ContentPage.Resources>
         <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter"></xct:ItemSelectedEventArgsConverter>
     </ContentPage.Resources>
-    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform  x:TypeArguments="ImageSource">
+                    <On Platform="Android" Value="plus.png"></On>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         <RefreshView 

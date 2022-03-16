@@ -9,12 +9,14 @@
             
         </viewmodels:JobDetailViewModel>
     </ContentPage.BindingContext>
+    
+    
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Name:" FontSize="Medium" />
-            <Label  Text="{Binding Name}" FontSize="Small" />
+            <Entry  Text="{Binding Name}" FontSize="Small" />
             <Label Text="Description:" FontSize="Medium" />
-            <Label  Text="{Binding Description}" FontSize="Small" />
+            <Entry  Text="{Binding Description}" FontSize="Small" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
