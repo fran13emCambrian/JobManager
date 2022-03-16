@@ -13,13 +13,14 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Xamarin.Forms;
 using JobManager;
+using System.Text; 
 
 [assembly: Dependency(typeof(WebClientService))]
 namespace JobManager
 {
     public class WebClientService : IWebClientService
     {
-        public async Task<string> GetString(string uri)
+        public async Task<string> GetAsync(string uri)
         {
             try
             {
@@ -33,6 +34,24 @@ namespace JobManager
                 return null; 
             }
 
+        }
+
+        public async Task<string> PostAsync(string uri, string body, string type)
+        {
+            try
+            {
+                HttpClient client;
+                client = new HttpClient();
+
+                var content = new StringContent(body, Encoding.UTF8, type);
+
+                HttpResponseMessage response = await client.PostAsync(uri, content); 
+                return response.IsSuccessStatusCode ? await response.Content.ReadAsStringAsync() : null;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
