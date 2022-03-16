@@ -15,7 +15,7 @@ namespace JobManager.Services
     {
 
         private readonly BlobServiceClient service = new BlobServiceClient(ConnectionString);
-        private static string ConnectionString => "Connection String Goes Here";
+        private static string ConnectionString => "DefaultEndpointsProtocol=https;AccountName=franjobmanager;AccountKey=h9Z1yNH17OzyuOK8wPNiKsO5x14zQ1lStXUrl18/eopNqLobs4uI/4AO9yGfx+kPN2e30rNtBd9x+AStkeNPVA==;EndpointSuffix=core.windows.net";
         private static string Container => "data"; 
         private static string Filename => "Jobs.json"; 
 

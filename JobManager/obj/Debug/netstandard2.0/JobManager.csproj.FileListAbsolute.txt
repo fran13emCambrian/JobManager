@@ -2,9 +2,11 @@ C:\Users\franc\source\repos\JobManager\JobManager\bin\Debug\netstandard2.0\JobMa
 C:\Users\franc\source\repos\JobManager\JobManager\bin\Debug\netstandard2.0\JobManager.dll
 C:\Users\franc\source\repos\JobManager\JobManager\bin\Debug\netstandard2.0\ref\JobManager.dll
 C:\Users\franc\source\repos\JobManager\JobManager\bin\Debug\netstandard2.0\JobManager.pdb
+C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\JobManager.csproj.AssemblyReference.cache
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\JobManager.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\Views\JobDetailPage.xaml.g.cs
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\Views\JobListPage.xaml.g.cs
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\Views\WelcomePage.xaml.g.cs
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\JobManager.AssemblyInfoInputs.cache
@@ -14,5 +16,3 @@ C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\XamlC
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\JobManager.dll
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\ref\JobManager.dll
 C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\JobManager.pdb
-C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\JobManager.csproj.AssemblyReference.cache
-C:\Users\franc\source\repos\JobManager\JobManager\obj\Debug\netstandard2.0\Views\JobDetailPage.xaml.g.cs
