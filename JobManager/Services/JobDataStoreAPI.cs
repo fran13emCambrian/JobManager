@@ -11,11 +11,16 @@ namespace JobManager.Services
 {
     class JobDataStoreAPI : IJobDataStore<Job>
     {
-        private static string StudentNumber => "A00004242";
+        private static string StudentNumber => "A00223609";
         private static string API => $"https://jobmanagerdevapi.azurewebsites.net/{StudentNumber}";
         public async Task AddJob(Job job)
         {
-            throw new NotImplementedException(); 
+            var service = DependencyService.Get<IWebClientService>();
+        var jsonString =    await service.PostAsync($"{API}/Jobs", JsonConvert.SerializeObject(job), "application/json");
+            if (jsonString != null)
+            {
+                var newJob = JsonConvert.DeserializeObject<Job>(jsonString);
+            }
         }
 
         public async Task<Job> GetJob(int jobId)
@@ -23,6 +28,8 @@ namespace JobManager.Services
             var service = DependencyService.Get<IWebClientService>();
             var jsonString = await service.GetAsync($"{API}/Jobs/{jobId}");
             var job = JsonConvert.DeserializeObject<Job>(jsonString);
+            job.Name += "-G";
+            await UpdateJob(job); 
             return job;
         }
 
@@ -31,12 +38,15 @@ namespace JobManager.Services
             var service = DependencyService.Get<IWebClientService>();
             var jsonString = await service.GetAsync($"{API}/Jobs");
             var jobs = JsonConvert.DeserializeObject<List<Job>>(jsonString);
+ 
             return jobs; 
         }
 
-        public Task UpdateJob(Job job)
+        public async Task UpdateJob(Job job)
         {
-            throw new NotImplementedException();
+            var service = DependencyService.Get<IWebClientService>();
+            await service.PutAsync($"{API}/Jobs/{job.Id}", JsonConvert.SerializeObject(job), "application/json");
+
         }
 
         public Task DeleteJob(Job job)
