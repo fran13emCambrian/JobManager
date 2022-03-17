@@ -1,6 +1,9 @@
-﻿using System;
+﻿using JobManager.Models;
+using MvvmHelpers.Commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms; 
 
 namespace JobManager.ViewModels
@@ -8,6 +11,8 @@ namespace JobManager.ViewModels
     [QueryProperty(nameof(JobId), nameof(JobId))]
     public class JobDetailViewModel : JobManagerBase
     {
+
+        public AsyncCommand SaveCommand { get; }
         private int jobId;
         public int JobId
         {
@@ -21,6 +26,28 @@ namespace JobManager.ViewModels
                 LoadJob(value); 
 
             }
+        }
+
+        public JobDetailViewModel()
+        {
+            SaveCommand = new AsyncCommand(Save);
+        }
+
+        async Task Save()
+        {
+            Job job = new Job
+            {
+                Id = jobId,
+                Name = name,
+                Description = description
+            };
+
+            if (jobId == 0)
+                await JobDataStore.UpdateJob(job);
+            else
+
+            await JobDataStore.UpdateJob(job);
+            await Shell.Current.GoToAsync("..");
         }
 
         private string name; 

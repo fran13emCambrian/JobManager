@@ -11,12 +11,14 @@
     </ContentPage.BindingContext>
     
     
+    
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
             <Label Text="Name:" FontSize="Medium" />
             <Entry  Text="{Binding Name}" FontSize="Small" />
             <Label Text="Description:" FontSize="Medium" />
             <Entry  Text="{Binding Description}" FontSize="Small" />
+            <Button Text="Save" Command="{Binding SaveCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
